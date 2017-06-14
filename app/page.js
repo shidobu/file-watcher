@@ -43,7 +43,7 @@
              var outputDir = getDir(outputTextbox);
 
              if (sourceDir != null && outputDir != null && validatePathsAreUnique(sourceTextbox, outputTextbox) && validatePathsNotRelated(sourceTextbox, outputTextbox)) {
-                 fileWatcher.watch(sourceDir, outputDir, includedPatterns, ignoredPatterns);
+                 fileWatcher.watch(sourceDir, outputDir, includeInitial, includedPatterns, ignoredPatterns);
 
                  optionsDiv.style.display = "none";
                  runningDiv.style.display = "block";
@@ -203,6 +203,8 @@
 
      outputTextbox.onchange = () => validateAndSave(outputTextbox);
      selectOutputButton.onclick = () => selectDirectory(outputTextbox);
+
+     includeInitialCheckbox.onchange = () => includeInitial = !includeInitial;
 
      // running element handlers
      stopWatchButton.onclick = () => stopWatch();
