@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="menu">
+        <ng-content></ng-content>
+        <input type="button" value="Clear Log" (click)="clearLog()" />
+    </div>
+    <div class="monitor">
+        <div class="log">
+            <log-item *ngFor="let entry of entries" [entry]="entry"></log-item>
+        </div>
+    </div>
+</div>

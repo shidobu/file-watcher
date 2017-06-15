@@ -1,0 +1,11 @@
+.entry {
+    overflow-wrap: normal;
+}
+
+.entry>div {
+    display: inline-block;
+}
+
+.type {
+    font-size: 8pt;
+}

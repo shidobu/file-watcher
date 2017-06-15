@@ -1,0 +1,19 @@
+.folder-input {
+    padding-bottom: 4px;
+    width: 100%;
+}
+
+.folder-input input[type=text] {
+    width: 365px;
+    font-size: 12pt;
+    padding: 2px 4px;
+}
+
+.folder-input input[type=button] {
+    position: relative;
+    bottom: 2px;
+}
+
+.folder-input div:first-child {
+    margin-bottom: 2px;
+}

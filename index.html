@@ -4,51 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <title>File Watcher</title>
-    <style>
-        #log {}
-    </style>
+
+    <link rel="stylesheet" href="./app.css" type="text/css" />
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <script src="systemjs.config.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <body>
-    <div id="options" style="display: block;">
-        <input type="button" value="Watch" id="startWatch" />
-
-        <div>
-            <label for="source">Source Directory</label>
-            <input type="text" id="source" placeholder="C:\Source" />
-            <input type="button" value="Select" id="select-source" />
-            <div class="errors"></div>
-        </div>
-        <div>
-            <label for="output">Output Directory</label>
-            <input type="text" id="output" placeholder="C:\Output" />
-            <input type="button" value="Select" id="select-output" />
-            <div class="errors"></div>
-        </div>
-
-        <div>
-            <input type="checkbox" id="includeInitial" disabled /> <label for="includeInitial">Included existing files upon starting watch.</label>
-        </div>
-
-        <div>
-            Included Patterns: *
-        </div>
-
-        <div>
-            Ignored Patterns: **/.git **/node_modules
-        </div>
-    </div>
-
-    <div id="running" style="display: none;">
-        <input type="button" value="Stop" id="stopWatch" onclick="stopWatch()" />
-        <input type="button" value="Clear Log" id="clearLog" onclick="clearLog()" />
-
-        <div class="log" id="log"></div>
-    </div>
+    <window></window>
 </body>
 
-<script type="text/javascript">
-    require("./app/page.js");
+<script>
+    SystemJS.import('app');
 </script>
 
 </html>
