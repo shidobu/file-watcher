@@ -16,6 +16,7 @@ configure_npm_packages:
 build_master:
   stage: build
   script:
+    - tsc
     - npm run pack --production
   only:
     - master
