@@ -10,7 +10,8 @@
         "dist": "build"
     },
     "build": {
-        "appId": "com.tr.roctesting.filewatcher"
+        "appId": "com.tr.roctesting.filewatcher",
+        "asar": false
     },
     "repository": "https://git.sami.int.thomsonreuters.com/RocTesting/FileWatcher",
     "keywords": [
