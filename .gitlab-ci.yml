@@ -1,0 +1,27 @@
+stages:
+  - prebuild
+  - build
+
+configure_npm_packages:
+  stage: prebuild
+  tags:
+    - windows
+    - node
+  script:
+    - npm install
+  cache: 
+    paths:
+      - node_modules/
+
+build_master:
+  stage: build
+  script:
+    - npm run pack --production
+  only:
+    - master
+  tags:
+    - windows
+    - node
+  cache: 
+    paths:
+      - dist/
