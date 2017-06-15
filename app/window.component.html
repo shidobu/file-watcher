@@ -1,0 +1,13 @@
+<div class="window">
+    <div *ngIf="!isWatching">
+        <options [options]="options" (optionsChange)="saveSettings($event)">
+            <input type="button" value="Watch" (click)="startWatch()" />
+        </options>
+    </div>
+
+    <div *ngIf="isWatching">
+        <monitor>
+            <input type="button" value="Stop" (click)="stopWatch()" />
+        </monitor>
+    </div>
+</div>

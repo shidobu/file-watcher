@@ -1,0 +1,61 @@
+.no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -ms-touch-select: none;
+    cursor: default;
+}
+
+body {
+    margin: 0;
+    background-color: #4e4e4e;
+    color: white;
+    font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+}
+
+input {
+    border: solid 1px gray;
+    background-color: #3f3f3f;
+    color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input[type=button] {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+input:not([type=checkbox]):hover {
+    box-shadow: 0 0 1px white;
+    cursor: pointer;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    height: 24px;
+    width: 100%;
+    padding-top: 5px;
+    padding-left: 4px;
+    z-index: 100;
+    border-bottom: 1px solid gray;
+    background-color: #4e4e4e;
+}
+
+.options,
+.monitor {
+    position: relative;
+    padding-left: 4px;
+    padding-right: 6px;
+}
+
+.options {
+    top: 34px;
+}
+
+.monitor {
+    top: 34px;
+}

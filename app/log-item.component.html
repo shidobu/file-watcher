@@ -1,0 +1,8 @@
+<div class="entry" [ngClass]="entryType">
+    <div class="type">[{{entryType}}]</div>
+    <div *ngIf="entryType == 'File'" [ngClass]="entry.messages[1]">{{entry.messages[0]}} {{entry.messages[1]}}</div>
+    <div *ngIf="entryType == 'Folder'" [ngClass]="entry.messages[1]">{{entry.messages[0]}} {{entry.messages[1]}}></div>
+    <div *ngIf="entryType != 'File' && entryType != 'Folder'">
+        <span *ngFor="let message of entry.messages">{{message}}</span>
+    </div>
+</div>
