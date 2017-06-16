@@ -22,12 +22,13 @@ build:
 deploy_win:
   stage: deploy
   dependencies:
-  - compile
+  - build
   before_script:
     - yarn install
+    - tsc
+  script:
     - npm prune --production
     - npm dedupe
-  script:
     - npm run dist
   only:
     - tags
