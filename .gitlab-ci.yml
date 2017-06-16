@@ -1,15 +1,15 @@
 
 stages:
   - compile
-  - test
   - deploy
 
-compile:
+build:
   stage: compile
   before_script:
     - yarn install
   script:
     - tsc
+    - echo "testing"
   only:
     - master
     - tags
@@ -18,39 +18,20 @@ compile:
     - node
     - typescript
     - yarn
-  artifacts:
-    untracked: true
-
-test:
-  stage: test
-  dependencies:
-  - compile
-  script:
-    - echo "testing"
-  only:
-    - master
-    - tags
-  tags:
-    - windows
-    - node
 
 deploy_win:
   stage: deploy
   dependencies:
   - compile
   before_script:
+    - yarn install
     - npm prune --production
     - npm dedupe
   script:
     - npm run dist
   only:
-    - master
     - tags
   tags:
     - windows
     - node
     - electron-builder
-  artifacts:
-    paths:
-      - dist/*.exe
-    when: on_success
