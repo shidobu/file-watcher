@@ -3,38 +3,35 @@ stages:
   - compile
   - deploy
 
-build:
-  stage: compile
-  before_script:
-    - yarn install
+.compile: &job_definition 
   script:
+    - yarn install
     - tsc
-    - echo "testing"
-  only:
-    - master
-    - tags
   tags:
     - windows
     - node
     - typescript
     - yarn
 
+build:
+  <<: *job_definition
+  stage: compile
+  script: 
+    - echo "testing"
+  only:
+    - master
+    - tags
+
 deploy_win:
+  <<: *job_definition
   stage: deploy
   dependencies:
   - build
-  before_script:
-    - yarn install
-    - tsc
-  script:
+  script: 
     - npm prune --production
     - npm dedupe
     - npm run dist
   only:
     - tags
   tags:
-    - windows
-    - node
     - electron-builder
-    - typescript
-    - yarn
