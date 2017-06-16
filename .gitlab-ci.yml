@@ -50,6 +50,7 @@ predeploy_win:
     - npm prune --production
     - npm dedupe
   only:
+    - master
     - tags
   tags:
     - windows
@@ -63,6 +64,7 @@ deploy_win:
   script:
     - npm run dist
   only:
+    - master
     - tags
   tags:
     - windows
