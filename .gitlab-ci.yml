@@ -15,8 +15,7 @@ configure_packages:
   script:
     - yarn install
   cache:
-    paths:
-      - node_modules/
+    untracked: true
 
 compile:
   stage: compile
@@ -29,6 +28,8 @@ compile:
     - windows
     - node
     - typescript
+  cache:
+    untracked: true
 
 test:
   stage: test
@@ -39,6 +40,8 @@ test:
   tags:
     - windows
     - node
+  cache:
+    untracked: true
 
 predeploy_win:
   stage: predeploy
@@ -51,6 +54,8 @@ predeploy_win:
     - windows
     - node
     - npm
+  cache:
+    untracked: true
 
 deploy_win:
   stage: deploy
