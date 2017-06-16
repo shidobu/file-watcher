@@ -1,8 +1,4 @@
 
-cache:
-  paths:
-  - node_modules/
-
 stages:
   - compile
   - test
@@ -22,6 +18,8 @@ compile:
     - node
     - typescript
     - yarn
+  artifacts:
+    untracked: true
 
 test:
   stage: test
