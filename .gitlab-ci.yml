@@ -45,9 +45,7 @@ prebuild_win:
   artifacts:
     paths:
       - dist/*.exe
-    when:
-      - on_success
-
+    when: on_success
 
 build_win:
   stage: build
