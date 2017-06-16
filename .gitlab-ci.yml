@@ -9,7 +9,7 @@ before_script:
 build:
   stage: compile
   script: 
-    - tsc
+    - call tsc
     - call npm test
   only:
     - master
