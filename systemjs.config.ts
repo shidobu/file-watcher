@@ -18,7 +18,7 @@ var configuration: any = {
         'electron': { main: 'index' },
         'anymatch': { main: 'index' },
         'chokidar': { main: 'index' },
-        'rxjs': { main: 'rx.js', defaultExtension: 'js' },
+        'rxjs': { main: 'Rx.js', defaultExtension: 'js' },
         'app': { main: 'app', defaultExtension: 'js' },
         '@angular/platform-browser/animations': { main: '../../platform-browser/bundles/platform-browser-animations.umd.js' },
         '@angular/animations/browser': { main: '../../animations/bundles/animations-browser.umd.js' },

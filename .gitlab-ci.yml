@@ -1,28 +1,65 @@
 stages:
+  - precompile
+  - compile
   - prebuild
   - build
 
 configure_npm_packages:
-  stage: prebuild
+  stage: precomile
   tags:
     - windows
     - node
   script:
     - npm install
-  cache: 
-    paths:
-      - node_modules/
 
-build_master:
-  stage: build
+compile_master:
+  stage: compile
   script:
-    - tsc
-    - npm run pack --production
+    - .\node_modules\.bin\tsc
   only:
     - master
   tags:
     - windows
     - node
-  cache: 
+  
+compile_tags:
+  stage: compile
+  script:
+    - .\node_modules\.bin\tsc
+  only:
+    - tags
+  tags:
+    - windows
+    - node
+
+prebuild_win:
+  stage: prebuild
+  script:
+    - npm prune --production
+    - npm dedupe
+  only:
+    - tags
+  tags:
+    - windows
+    - node
+  artifacts:
     paths:
-      - dist/
+      - dist/*.exe
+    when:
+      - on_success
+
+
+build_win:
+  stage: build
+  script:
+    - npm run dist
+  only:
+    - tags
+  tags:
+    - windows
+    - node
+  artifacts:
+    paths:
+      - dist/*.exe
+    when:
+      - on_success
