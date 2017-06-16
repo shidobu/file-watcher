@@ -9,6 +9,7 @@ before_script:
 build:
   stage: compile
   script: 
+    - tsc
     - call npm test
   only:
     - master
@@ -24,7 +25,6 @@ deploy_win:
   dependencies:
   - build
   script: 
-    - call tsc
     - call npm prune --production
     - call npm dedupe
     - call npm run dist
