@@ -3,15 +3,9 @@ stages:
   - compile
   - deploy
 
-.compile: &job_definition 
-  script:
-    - yarn install
-    - tsc
-  tags:
-    - windows
-    - node
-    - typescript
-    - yarn
+before_script:
+  - yarn install
+  - tsc
 
 build:
   <<: *job_definition
@@ -21,6 +15,11 @@ build:
   only:
     - master
     - tags
+  tags:
+    - windows
+    - node
+    - typescript
+    - yarn
 
 deploy_win:
   <<: *job_definition
@@ -34,4 +33,8 @@ deploy_win:
   only:
     - tags
   tags:
+    - windows
+    - node
+    - typescript
+    - yarn
     - electron-builder
