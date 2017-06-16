@@ -36,3 +36,5 @@ deploy_win:
     - windows
     - node
     - electron-builder
+    - typescript
+    - yarn
