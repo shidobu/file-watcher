@@ -9,3 +9,19 @@
 .type {
     font-size: 8pt;
 }
+
+.Info,
+.Debug,
+.Error,
+.File,
+.Folder {
+    background-color: transparent;
+}
+
+.Info .type,
+.Debug .type,
+.Error .type,
+.File .type,
+.Folder .type {
+    color: gray;
+}

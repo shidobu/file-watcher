@@ -7,7 +7,7 @@
         <folder-input [(directory)]="options.outputDirectory" (directoryChange)="updateOptions()" label="Output Directory" (checkValid)="checkValid($event)"></folder-input>
 
         <div class="monitorExisting">
-            <input type="checkbox" id="monitorExistingOnStart" [attr.checked]='options.monitorExistingOnStart' disabled />
+            <input type="checkbox" id="monitorExistingOnStart" [(ngModel)]="options.monitorExistingOnStart" />
             <label for="monitorExistingOnStart">Monitor existing files on start.</label>
         </div>
 
