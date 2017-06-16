@@ -10,8 +10,6 @@ stages:
 
 compile:
   stage: compile
-  dependencies:
-  - configure_packages
   before_script:
     - yarn install
   script:
