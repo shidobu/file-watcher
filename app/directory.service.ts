@@ -45,7 +45,7 @@ export class DirectoryService {
         }
     }
 
-    validatePathNotInIgnoredPattern(value: string, ignoredPatterns: string | string[], callback: DirectoryCallback): void {
+    validatePathNotInExcludedPattern(value: string, ignoredPatterns: string | string[], callback: DirectoryCallback): void {
         if (anymatch(ignoredPatterns, value)) {
             callback("Path must not contain an ignored pattern.")
         } else {
@@ -55,18 +55,15 @@ export class DirectoryService {
 
     validatePathsAreUnique(firstValue: string, secondValue: string, callback: DirectoryCallback): void {
         if (firstValue == secondValue) {
-            callback("Source and Output must be different.");
-            callback("Source and Output must be different.");
+            callback("Path values must be different.");
         } else {
             callback();
         }
     }
 
     validatePathsNotRelated(firstValue: string, secondValue: string, callback: DirectoryCallback): void {
-        if (firstValue.indexOf(secondValue) >= 0) {
-            callback("Source path must not be a child of the output path.");
-        } else if (secondValue.indexOf(firstValue) >= 0) {
-            callback("Output path must not be a child of the source path.");
+        if (firstValue.indexOf(secondValue) >= 0 || secondValue.indexOf(firstValue) >= 0) {
+            callback("Path must not be a child of another path.");
         } else {
             callback();
         }

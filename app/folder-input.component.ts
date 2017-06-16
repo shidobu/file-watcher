@@ -12,9 +12,17 @@ export class FolderInputComponent {
     @Input() private directory: string;
     @Output() private directoryChange: EventEmitter<string> = new EventEmitter<string>();
     private errors: string[] = [];
-    @Output() private checkValid: EventEmitter<string[]> = new EventEmitter<string[]>();
+    @Output() private validateDirectory: EventEmitter<FolderInputComponent> = new EventEmitter<FolderInputComponent>();
 
     constructor( @Inject(NgZone) private ngZone: NgZone, @Inject(DirectoryService) private directoryService: DirectoryService) { }
+
+    public get currentDirectory(): string {
+        return this.directory;
+    }
+
+    addError(error: string): void {
+        this.errors.push(error);
+    }
 
     clearErrors(): void {
         this.errors = [];
@@ -35,7 +43,7 @@ export class FolderInputComponent {
                 }
             });
 
-        this.checkValid.emit(this.errors);
+        this.validateDirectory.emit(this);
     }
 
     selectDirectory(): void {

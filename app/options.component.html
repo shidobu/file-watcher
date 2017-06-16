@@ -3,8 +3,8 @@
         <ng-content></ng-content>
     </div>
     <div class="options">
-        <folder-input [(directory)]="options.sourceDirectory" (directoryChange)="updateOptions()" label="Source Directory" (checkValid)="checkValid($event)"></folder-input>
-        <folder-input [(directory)]="options.outputDirectory" (directoryChange)="updateOptions()" label="Output Directory" (checkValid)="checkValid($event)"></folder-input>
+        <folder-input [directory]="options.sourceDirectory" (validateDirectory)="validateDirectory('source', $event)" label="Source Directory" (checkValid)="checkValid($event)"></folder-input>
+        <folder-input [directory]="options.outputDirectory" (validateDirectory)="validateDirectory('output', $event)" label="Output Directory" (checkValid)="checkValid($event)"></folder-input>
 
         <div class="monitorExisting">
             <input type="checkbox" id="monitorExistingOnStart" [(ngModel)]="options.monitorExistingOnStart" (ngModelChange)="updateOptions()" />

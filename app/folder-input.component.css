@@ -9,6 +9,10 @@
     padding: 2px 4px;
 }
 
+.folder-input input[invalid=true] {
+    background-color: red;
+}
+
 .folder-input input[type=button] {
     position: relative;
     bottom: 2px;
