@@ -1,24 +1,19 @@
-stages:
-  - precompile
-  - compile
-  - pretest
-  - test
-  - predeploy
-  - deploy
 
-configure_packages:
-  stage: precompile
-  tags:
-    - windows
-    - node
-    - yarn
-  script:
-    - yarn install
-  cache:
-    untracked: true
+cache:
+  paths:
+  - node_modules/
+
+stages:
+  - compile
+  - test
+  - deploy
 
 compile:
   stage: compile
+  dependencies:
+  - configure_packages
+  before_script:
+    - yarn install
   script:
     - tsc
   only:
@@ -28,11 +23,12 @@ compile:
     - windows
     - node
     - typescript
-  cache:
-    untracked: true
+    - yarn
 
 test:
   stage: test
+  dependencies:
+  - compile
   script:
     - echo "testing"
   only:
@@ -41,26 +37,14 @@ test:
   tags:
     - windows
     - node
-  cache:
-    untracked: true
-
-predeploy_win:
-  stage: predeploy
-  script:
-    - npm prune --production
-    - npm dedupe
-  only:
-    - master
-    - tags
-  tags:
-    - windows
-    - node
-    - npm
-  cache:
-    untracked: true
 
 deploy_win:
   stage: deploy
+  dependencies:
+  - compile
+  before_script:
+    - npm prune --production
+    - npm dedupe
   script:
     - npm run dist
   only:
