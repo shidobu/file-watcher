@@ -6,13 +6,17 @@ stages:
   - predeploy
   - deploy
 
-configure_npm_packages:
+configure_packages:
   stage: precompile
   tags:
     - windows
     - node
+    - yarn
   script:
-    - npm install
+    - yarn install
+  cache:
+    paths:
+      - node_modules/
 
 compile:
   stage: compile
@@ -24,6 +28,7 @@ compile:
   tags:
     - windows
     - node
+    - typescript
 
 test:
   stage: test
@@ -45,6 +50,7 @@ predeploy_win:
   tags:
     - windows
     - node
+    - npm
 
 deploy_win:
   stage: deploy
@@ -55,6 +61,7 @@ deploy_win:
   tags:
     - windows
     - node
+    - electron-builder
   artifacts:
     paths:
       - dist/*.exe
