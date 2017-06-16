@@ -5,6 +5,7 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
+        "dist/": true,
         "**/*.js.map": {
             "when": "$(basename)"
         },
