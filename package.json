@@ -6,7 +6,7 @@
     "scripts": {
         "start": "electron .",
         "dev": "tsc && concurrently \"npm run tsc:w\" \"electron .\" ",
-        "test": "echo testing",
+        "test": "echo \"testing\"",
         "pack": "build --dir",
         "dist": "build"
     },
