@@ -4,8 +4,8 @@ stages:
   - deploy
 
 before_script:
-  - yarn install
-  - tsc
+  - call yarn install
+  - call tsc
 
 build:
   stage: compile
@@ -25,9 +25,9 @@ deploy_win:
   dependencies:
   - build
   script: 
-    - npm prune --production
-    - npm dedupe
-    - npm run dist
+    - call npm prune --production
+    - call npm dedupe
+    - call npm run dist
   only:
     - tags
   tags:
