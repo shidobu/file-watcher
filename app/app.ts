@@ -1,5 +1,14 @@
 
+import { enableProdMode } from "@angular/core";
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app.module';
+
+var isDev = (): boolean => {
+    return process.mainModule.filename.indexOf('app.asar') === -1;
+};
+
+if (!isDev()) {
+    enableProdMode();
+}
 
 platformBrowserDynamic().bootstrapModule(AppModule);

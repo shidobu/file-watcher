@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, NgZone } from '@angular/core';
 
 import { WatcherOptions } from './watcher-options';
 import { WatcherService } from './watcher.service';
@@ -16,8 +16,9 @@ export class WindowComponent {
     private options: WatcherOptions;
 
     private isWatching: boolean = false;
+    private isValid: boolean = false;
 
-    constructor( @Inject(WatcherService) private watcherService: WatcherService) { }
+    constructor( @Inject(NgZone) private ngZone: NgZone, @Inject(WatcherService) private watcherService: WatcherService) { }
 
     ngOnInit(): void {
         var defaultOptions = settings.get('options', null);
@@ -51,5 +52,13 @@ export class WindowComponent {
     private saveSettings(value: WatcherOptions) {
         settings.set('options', value);
         this.options = value;
+    }
+
+    private setValid(value: boolean): void {
+        setTimeout(() => {
+            this.ngZone.run(() => {
+                this.isValid = value;
+            });
+        }, 5);
     }
 }

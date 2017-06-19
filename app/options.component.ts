@@ -13,55 +13,60 @@ export class OptionsComponent {
 
     @Input() private options: WatcherOptions;
     @Output() private optionsChange: EventEmitter<WatcherOptions> = new EventEmitter<WatcherOptions>();
+    @Output() private invalidOptions: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     constructor( @Inject(DirectoryService) private directoryService: DirectoryService) { }
-
-    checkValid(errors: string[]): void {
-
-    }
 
     updateOptions() {
         this.optionsChange.emit(this.options);
     }
 
     validateDirectory(current: string, component: FolderInputComponent): void {
-        this.directoryService.validatePathNotInExcludedPattern(component.currentDirectory, this.options.excludedPatterns, (err?: string) => {
-            if (err != null) {
-                component.addError(err);
-            } else {
-                var other: string;
-                if (current == "source") {
-                    other = this.options.outputDirectory;
+        if (component.hasErrors()) {
+            this.invalidOptions.emit(true);
+        } else {
+            this.directoryService.validatePathNotInExcludedPattern(component.currentDirectory, this.options.excludedPatterns, (err?: string) => {
+                if (err != null) {
+                    component.addError(err);
+                    this.invalidOptions.emit(true);
                 } else {
-                    other = this.options.sourceDirectory;
-                }
-
-                this.directoryService.validatePathsAreUnique(component.currentDirectory, other, (err?: string) => {
-                    if (err != null) {
-                        component.addError(err);
+                    var other: string;
+                    if (current == "source") {
+                        other = this.options.outputDirectory;
                     } else {
-                        var other: string;
-                        if (current == "source") {
-                            other = this.options.outputDirectory;
-                        } else {
-                            other = this.options.sourceDirectory;
-                        }
-                        this.directoryService.validatePathsNotRelated(component.currentDirectory, other, (err?: string) => {
-                            if (err != null) {
-                                component.addError(err);
-                            } else {
-                                if (current == "source") {
-                                    this.options.sourceDirectory = component.currentDirectory;
-                                } else {
-                                    this.options.outputDirectory = component.currentDirectory;
-                                }
-
-                                this.updateOptions();
-                            }
-                        });
+                        other = this.options.sourceDirectory;
                     }
-                });
-            }
-        });
+
+                    this.directoryService.validatePathsAreUnique(component.currentDirectory, other, (err?: string) => {
+                        if (err != null) {
+                            component.addError(err);
+                            this.invalidOptions.emit(true);
+                        } else {
+                            var other: string;
+                            if (current == "source") {
+                                other = this.options.outputDirectory;
+                            } else {
+                                other = this.options.sourceDirectory;
+                            }
+                            this.directoryService.validatePathsNotRelated(component.currentDirectory, other, (err?: string) => {
+                                if (err != null) {
+                                    component.addError(err);
+                                    this.invalidOptions.emit(true);
+                                } else {
+                                    if (current == "source") {
+                                        this.options.sourceDirectory = component.currentDirectory;
+                                    } else {
+                                        this.options.outputDirectory = component.currentDirectory;
+                                    }
+
+                                    this.updateOptions();
+                                    this.invalidOptions.emit(false);
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        }
     }
 }

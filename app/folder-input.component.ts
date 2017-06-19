@@ -7,10 +7,9 @@ import { DirectoryService } from './directory.service';
     templateUrl: 'folder-input.component.html',
     styleUrls: ['folder-input.component.css'],
 })
-export class FolderInputComponent {
+export class FolderInputComponent implements OnInit {
     @Input() private label: string;
     @Input() private directory: string;
-    @Output() private directoryChange: EventEmitter<string> = new EventEmitter<string>();
     private errors: string[] = [];
     @Output() private validateDirectory: EventEmitter<FolderInputComponent> = new EventEmitter<FolderInputComponent>();
 
@@ -18,6 +17,14 @@ export class FolderInputComponent {
 
     public get currentDirectory(): string {
         return this.directory;
+    }
+
+    ngOnInit(): void {
+        this.ngZone.run(() => {
+            if (this.directory != null && this.directory != "") {
+                this.validate();
+            }
+        });
     }
 
     addError(error: string): void {
@@ -28,9 +35,12 @@ export class FolderInputComponent {
         this.errors = [];
     }
 
+    hasErrors(): boolean {
+        return this.errors.length > 0;
+    }
+
     updateDirectory(directory: string): void {
         this.directory = directory;
-        this.directoryChange.emit(directory);
         this.validate();
     }
 
@@ -41,9 +51,10 @@ export class FolderInputComponent {
                 if (err != null) {
                     this.errors.push(err);
                 }
+
+                this.validateDirectory.emit(this);
             });
 
-        this.validateDirectory.emit(this);
     }
 
     selectDirectory(): void {
