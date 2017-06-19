@@ -6,7 +6,7 @@
     "scripts": {
         "start": "electron .",
         "dev": "tsc && concurrently \"tsc -w\" \"electron .\" ",
-        "test": "echo \"testing\"",
+        "test": "exit 0",
         "pack": "build --dir",
         "dist": "build"
     },
