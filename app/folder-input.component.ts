@@ -10,6 +10,8 @@ import { DirectoryService } from './directory.service';
 export class FolderInputComponent implements OnInit {
     @Input() private label: string;
     @Input() private directory: string;
+    @Input() private allowNonExistent: boolean = false;
+
     private errors: string[] = [];
     @Output() private validateDirectory: EventEmitter<FolderInputComponent> = new EventEmitter<FolderInputComponent>();
 
@@ -46,15 +48,26 @@ export class FolderInputComponent implements OnInit {
 
     validate(): void {
         this.clearErrors();
-        this.directoryService.validatePathExistsAndIsDirectory(this.directory,
-            (err?: string): void => {
-                if (err != null) {
-                    this.errors.push(err);
-                }
 
-                this.validateDirectory.emit(this);
-            });
+        if (!this.allowNonExistent) {
+            this.directoryService.validatePathExistsAndIsDirectory(this.directory,
+                (err?: string): void => {
+                    if (err != null) {
+                        this.errors.push(err);
+                    }
 
+                    this.validateDirectory.emit(this);
+                });
+        } else {
+            this.directoryService.validatePathExistsAndIsDirectoryOrDoesNotExist(this.directory,
+                (err?: string): void => {
+                    if (err != null) {
+                        this.errors.push(err);
+                    }
+
+                    this.validateDirectory.emit(this);
+                });
+        }
     }
 
     selectDirectory(): void {

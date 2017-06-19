@@ -45,6 +45,20 @@ export class DirectoryService {
         }
     }
 
+    validatePathExistsAndIsDirectoryOrDoesNotExist(value: string, callback: DirectoryCallback): void {
+        try {
+            var stats = fs.statSync(value);
+
+            if (!stats.isDirectory()) {
+                callback("Value is not a folder.");
+            } else {
+                callback();
+            }
+        } catch (error) {
+            callback();
+        }
+    }
+
     validatePathNotInExcludedPattern(value: string, ignoredPatterns: string | string[], callback: DirectoryCallback): void {
         if (anymatch(ignoredPatterns, value)) {
             callback("Path must not contain an ignored pattern.")
