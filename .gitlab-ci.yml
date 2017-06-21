@@ -28,6 +28,7 @@ deploy_win:
     - call npm prune --production
     - call npm dedupe
     - call npm run dist
+    - call deployo --url=http://c549nutclrdva.tlr.thomson.com:8999/file-watcher/%CI_COMMIT_TAG% --key=%DEPLOYO_KEY% --file="%cd%\dist\file-watcher Setup %CI_COMMIT_TAG%.exe"
   only:
     - tags
   tags:
