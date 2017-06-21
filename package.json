@@ -1,6 +1,6 @@
 {
     "name": "file-watcher",
-    "version": "1.0.1-beta",
+    "version": "1.0.2-beta",
     "description": "A minimal file watcher",
     "main": "main.js",
     "scripts": {
@@ -12,7 +12,11 @@
     },
     "build": {
         "appId": "com.tr.roctesting.filewatcher",
-        "asar": true
+        "asar": true,
+        "publish": {
+            "provider": "generic",
+            "channel": "latest"
+        }
     },
     "repository": "https://git.sami.int.thomsonreuters.com/RocTesting/FileWatcher",
     "keywords": [

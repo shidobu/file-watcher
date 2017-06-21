@@ -76,7 +76,11 @@ export class DirectoryService {
     }
 
     validatePathsNotRelated(firstValue: string, secondValue: string, callback: DirectoryCallback): void {
-        if (firstValue.indexOf(secondValue) >= 0 || secondValue.indexOf(firstValue) >= 0) {
+        if (firstValue != null && secondValue == null) {
+            callback();
+        } else if (firstValue == null && secondValue != null) {
+            callback();
+        } else if (firstValue.indexOf(secondValue) >= 0 || secondValue.indexOf(firstValue) >= 0) {
             callback("Path must not be a child of another path.");
         } else {
             callback();
