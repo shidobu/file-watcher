@@ -1,23 +1,27 @@
 {
     "name": "file-watcher",
-    "version": "1.0.2-beta",
+    "version": "1.0.2-beta3",
     "description": "A minimal file watcher",
     "main": "main.js",
     "scripts": {
         "start": "electron .",
-        "dev": "tsc && concurrently \"tsc -w\" \"electron .\" ",
+        "dev": "tsc --sourceMap && concurrently \"tsc -w --sourceMap\" \"electron .\" ",
         "test": "exit 0",
         "pack": "build --dir",
         "dist": "build"
     },
     "build": {
         "appId": "com.tr.roctesting.filewatcher",
-        "asar": true,
+        "asar": false,
         "publish": {
             "provider": "generic",
             "url": "http://c549nutclrdva.tlr.thomson.com:8999/file-watcher",
             "channel": "latest"
-        }
+        },
+        "files": [
+            "!**/*.ts",
+            "!**/*.js.map"
+        ]
     },
     "repository": "https://git.sami.int.thomsonreuters.com/RocTesting/FileWatcher",
     "keywords": [
