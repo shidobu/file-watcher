@@ -10,7 +10,6 @@ build:
   stage: compile
   script: 
     - call tsc
-    - call npm test
   only:
     - master
     - tags
@@ -28,8 +27,8 @@ deploy_win:
     - call tsc
     - call npm prune --production
     - call npm dedupe
-    - call npm run dist
-    - call deployo --url=http://c549nutclrdva.tlr.thomson.com:8999/file-watcher/%CI_COMMIT_TAG% --key=%DEPLOYO_KEY% --file="%cd%\dist\file-watcher Setup %CI_COMMIT_TAG%.exe"
+    - call build -c.extraMetadata.version=%CI_COMMIT_TAG%
+    - call deployo --url=http://c549nutclrdva.tlr.thomson.com:8999/repo/file-watcher/%CI_COMMIT_TAG% --key=%DEPLOYO_KEY% --file="%cd%\dist\file-watcher Setup %CI_COMMIT_TAG%.exe"
   only:
     - tags
   tags:
