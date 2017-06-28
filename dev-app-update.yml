@@ -1,0 +1,3 @@
+provider: generic
+url: 'http://c549nutclrdva.tlr.thomson.com:8999/repo/file-watcher'
+channel: latest

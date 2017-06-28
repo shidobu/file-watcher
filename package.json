@@ -1,6 +1,6 @@
 {
     "name": "file-watcher",
-    "version": "1.0.2-beta3",
+    "version": "1.0.2-beta4",
     "description": "A minimal file watcher",
     "main": "main.js",
     "scripts": {
@@ -15,7 +15,7 @@
         "asar": false,
         "publish": {
             "provider": "generic",
-            "url": "http://c549nutclrdva.tlr.thomson.com:8999/file-watcher",
+            "url": "http://c549nutclrdva.tlr.thomson.com:8999/repo/file-watcher",
             "channel": "latest"
         },
         "files": [
@@ -48,7 +48,9 @@
         "chokidar": "^1.7.0",
         "core-js": "^2.4.1",
         "electron-debug": "^1.1.0",
+        "electron-log": "^2.2.6",
         "electron-settings": "^3.1.1",
+        "electron-updater": "^2.4.3",
         "reflect-metadata": "^0.1.10",
         "rxjs": "5.4.0",
         "systemjs": "^0.20.14",
