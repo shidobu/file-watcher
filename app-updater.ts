@@ -4,6 +4,8 @@ import * as os from "os"
 import { isDev } from "./app/util"
 
 export default class AppUpdater {
+  private updateReady: boolean = false;
+
   constructor() {
     if (isDev()) {
       return;
@@ -20,9 +22,20 @@ export default class AppUpdater {
 
     autoUpdater.signals.updateDownloaded(it => {
       this.notify("A new update is ready to install", `Version ${it.version} is downloaded and will be automatically installed on Quit`)
+      this.updateReady = true;
     });
 
     autoUpdater.checkForUpdates()
+  }
+
+  installUpdateIfAvailable() {
+    if (this.updateReady) {
+      autoUpdater.quitAndInstall();
+    }
+  }
+
+  hasUpdate() {
+    return this.updateReady;
   }
 
   notify(title: string, message: string): void {

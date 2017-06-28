@@ -12,6 +12,8 @@ const url = require('url')
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow: any;
 
+let autoUpdater: AppUpdater;
+
 function createWindow() {
     // Create the browser window.
     mainWindow = new BrowserWindow({
@@ -43,8 +45,8 @@ function createWindow() {
         // when you should delete the corresponding element.
         mainWindow = null
     });
-    
-    new AppUpdater()
+
+    autoUpdater = new AppUpdater()
 }
 
 // This method will be called when Electron has finished
@@ -57,7 +59,11 @@ app.on('window-all-closed', function () {
     // On OS X it is common for applications and their menu bar
     // to stay active until the user quits explicitly with Cmd + Q
     if (process.platform !== 'darwin') {
-        app.quit()
+        if (autoUpdater.hasUpdate()) {
+            autoUpdater.installUpdateIfAvailable()
+        } else {
+            app.quit();
+        }
     }
 })
 
