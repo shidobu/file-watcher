@@ -2,6 +2,7 @@ import { Component, Inject, NgZone } from '@angular/core';
 
 import { WatcherOptions } from './watcher-options';
 import { WatcherService } from './watcher.service';
+var jsonp = require('../package.json!json.js');
 
 let settings = SystemJS._nodeRequire("electron-settings");
 
@@ -60,5 +61,9 @@ export class WindowComponent {
                 this.isValid = value;
             });
         }, 5);
+    }
+
+    private get version() : string {
+        return jsonp.version;
     }
 }
