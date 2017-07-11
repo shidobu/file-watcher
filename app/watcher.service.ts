@@ -14,7 +14,7 @@ let chokidar = SystemJS._nodeRequire('chokidar');
 export class WatcherService {
     private watcher: any;
 
-    constructor(@Inject(LogService) private logService: LogService) { }
+    constructor( @Inject(LogService) private logService: LogService) { }
 
     stop() {
         this.watcher.close();
@@ -34,13 +34,19 @@ export class WatcherService {
         });
 
         this.watcher
-            .on('add', (path: string) => this.addFile(path, source, output))
-            .on('addDir', (path: string) => this.addDirectory(path, source, output))
-            .on('change', (path: string) => this.updateFile(path, source, output))
-            .on('unlink', (path: string) => this.unlinkFile(path, source, output))
-            .on('unlinkDir', (path: string) => this.unlinkDirectory(path, source, output))
+            .on('add', (path: string) => this.includedFile(includedPatterns, path, source, output, this.addFile))
+            .on('addDir', (path: string) => this.includedFile(includedPatterns, path, source, output, this.addDirectory))
+            .on('change', (path: string) => this.includedFile(includedPatterns, path, source, output, this.updateFile))
+            .on('unlink', (path: string) => this.includedFile(includedPatterns, path, source, output, this.unlinkFile))
+            .on('unlinkDir', (path: string) => this.includedFile(includedPatterns, path, source, output, this.unlinkDirectory))
             .on('error', (error: string) => this.onError(error, source, output))
             .on('ready', () => this.logService.info('Initial scan complete. Ready for changes.'));
+    }
+
+    includedFile(includedPatterns: string | string[], path: string, source: string, output: string, callback: WatchCallback): void {
+        if (anymatch(includedPatterns, path)) {
+            callback.call(this, path, source, output);
+        }
     }
 
     addFile(path: string, source: string, output: string): void {
@@ -152,3 +158,5 @@ export class WatcherService {
         });
     }
 }
+
+type WatchCallback = (error: string, source: string, output: string) => void;
