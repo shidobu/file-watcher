@@ -1,0 +1,75 @@
+div.view>span {
+    display: inline-block;
+    border: 1px solid gray;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 1px 2px;
+}
+
+div.view>span+span {
+    margin-left: 2px;
+}
+
+.empty:hover {
+    cursor: pointer;
+    outline: 1px solid;
+}
+
+div.edit>span {
+    display: inline-block;
+    border: 1px solid gray;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 1px 2px;
+}
+
+div.edit>span+span {
+    margin-left: 2px;
+}
+
+.hidden-item {
+    display: none;
+}
+
+.delete-entry {
+    cursor: pointer;
+}
+
+.delete-entry:hover {
+    color: orange;
+}
+
+.list-button {
+    cursor: pointer;
+}
+
+.list-button:hover {
+    color: orange;
+}
+
+.item-entry {
+    padding: 1px 2px;
+}
+
+.item-entry:hover {
+    background-color: orange;
+    cursor: pointer;
+}
+
+.items {
+    border: solid 1px gray;
+    background-color: #3f3f3f;
+    color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.item-input {
+    border: 0;
+    background-color: transparent;
+    color: white;
+    outline: 0;
+}

@@ -1,10 +1,10 @@
 <div class="folder-input">
     <div>
         <label [attr.for]="label">{{label}}</label>
-        <input type="button" value="Select" (click)="selectDirectory(directory)" />
+        <input class="w" type="button" value="Select" (click)="selectDirectory(directory)" />
     </div>
     <div>
-        <input type="text" [attr.id]="label" [attr.invalid]="errors.length > 0" placeholder="{{placeholder}}" [ngModel]="directory" (ngModelChange)="updateDirectory($event)" />
+        <input class="w" type="text" [attr.id]="label" [attr.invalid]="errors.length > 0" placeholder="{{placeholder}}" [ngModel]="directory" (ngModelChange)="updateDirectory($event)" />
     </div>
     <div class="errors">
         <div class="error" *ngFor="let error of errors">

@@ -1,12 +1,12 @@
 <div class="window">
     <div *ngIf="!isWatching">
         <options [options]="options" (optionsChange)="saveSettings($event)" (invalidOptions)="setValid(!$event)">
-            <input type="button" value="Watch" (click)="isValid && startWatch()" [class.disabled]="!isValid" />
+            <input class="w" type="button" value="Watch" (click)="isValid && startWatch()" [class.disabled]="!isValid" />
         </options>
     </div>
     <div *ngIf="isWatching">
         <monitor>
-            <input type="button" value="Stop" (click)="stopWatch()" />
+            <input class="w" type="button" value="Stop" (click)="stopWatch()" />
         </monitor>
     </div>
 

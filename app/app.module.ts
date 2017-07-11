@@ -11,6 +11,7 @@ import { OptionsComponent } from "./options.component";
 import { MonitorComponent } from "./monitor.component";
 import { FolderInputComponent } from "./folder-input.component";
 import { LogItemComponent } from "./log-item.component";
+import { DropdownEditorComponent } from './dropdown-editor.component';
 
 import { DirectoryService } from './directory.service';
 import { WatcherService } from './watcher.service';
@@ -28,7 +29,8 @@ import { LogService } from './log.service';
         OptionsComponent,
         MonitorComponent,
         FolderInputComponent,
-        LogItemComponent
+        LogItemComponent,
+        DropdownEditorComponent
     ],
     providers: [
         LogService,

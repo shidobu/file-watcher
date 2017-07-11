@@ -7,22 +7,18 @@
         <folder-input [directory]="options.outputDirectory" (validateDirectory)="validateDirectory('output', $event)" label="Output Directory"></folder-input>
 
         <div class="monitorExisting">
-            <input type="checkbox" id="monitorExistingOnStart" [(ngModel)]="options.monitorExistingOnStart" (ngModelChange)="updateOptions()" />
+            <input class="w" type="checkbox" id="monitorExistingOnStart" [(ngModel)]="options.monitorExistingOnStart" (ngModelChange)="updateOptions()" />
             <label for="monitorExistingOnStart">Monitor existing files on start.</label>
         </div>
 
         <div class="included">
             <div>Included Patterns:</div>
-            <div>
-                <span *ngFor="let pattern of options.includedPatterns">{{pattern}}</span>
-            </div>
+            <dropdown-editor [entries]="options.includedPatterns" (updateList)="updateIncludedItems($event)"></dropdown-editor>
         </div>
 
         <div class="excluded">
             <div>Excluded Patterns:</div>
-            <div>
-                <span *ngFor="let pattern of options.excludedPatterns">{{pattern}}</span>
-            </div>
+            <dropdown-editor [entries]="options.excludedPatterns" (updateList)="updateExcludedItems($event)"></dropdown-editor>
         </div>
     </div>
 </div>

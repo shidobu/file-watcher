@@ -1,3 +1,4 @@
+import { DropdownList } from './dropdown-list';
 import { FolderInputComponent } from './folder-input.component';
 import { Component, Inject, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DirectoryService } from './directory.service';
@@ -21,11 +22,21 @@ export class OptionsComponent {
         this.optionsChange.emit(this.options);
     }
 
+    private updateIncludedItems(list: DropdownList<string>): void {
+        this.options.includedPatterns = list;
+        this.updateOptions();
+    }
+
+    private updateExcludedItems(list: DropdownList<string>): void {
+        this.options.excludedPatterns = list;
+        this.updateOptions();
+    }
+
     validateDirectory(current: string, component: FolderInputComponent): void {
         if (component.hasErrors()) {
             this.invalidOptions.emit(true);
         } else {
-            this.directoryService.validatePathNotInExcludedPattern(component.currentDirectory, this.options.excludedPatterns, (err?: string) => {
+            this.directoryService.validatePathNotInExcludedPattern(component.currentDirectory, this.options.excludedPatterns.activeItems, (err?: string) => {
                 if (err != null) {
                     component.addError(err);
                     this.invalidOptions.emit(true);

@@ -1,6 +1,6 @@
 {
     "name": "file-watcher",
-    "version": "1.0.2-beta5",
+    "version": "1.0.3-beta1",
     "description": "A minimal file watcher",
     "main": "main.js",
     "scripts": {

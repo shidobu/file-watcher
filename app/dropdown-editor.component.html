@@ -1,0 +1,25 @@
+<div>
+    <div class="view" *ngIf="mode=='view'">
+        <div class="items" *ngIf="entries.activeItems.length > 0" (click)="switchToEditMode()">
+            <span *ngFor="let entry of entries.activeItems">{{entry}}</span>
+        </div>
+        <div class="empty" *ngIf="entries.activeItems.length == 0" (click)="switchToEditMode()">
+            Click to select or add items...
+        </div>
+    </div>
+    <div class="editor" *ngIf="mode=='edit'">
+        <div class="item-container">
+            <div class="items">
+                <span *ngFor="let entry of entries.activeItems">{{entry}} <span class="delete-entry" (click)="removeItemFromList(entry)">[x]</span></span>
+                <input type="text" class="item-input" value="*" [(ngModel)]="seek" (keydown)="handleKeyDown($event)" />
+            </div>
+            <span (click)="displayList = !displayList" class="list-button" [class.list-opened]="displayList">{{ !displayList ? 'v' : '^' }}</span>
+            <span (click)="save()" class="list-button">Save</span>
+            <span (click)="cancel()" class="list-button">Cancel</span>
+        </div>
+
+        <div class="selectList" *ngIf="displayList == true">
+            <div *ngFor="let entry of entries.allItems" class="item-entry" [class.hidden-item]="entries.activeItems.indexOf(entry) >= 0 || (seek != '' && entry.indexOf(seek) < 0)" [class.existing-item]="(seek != '' && entry.indexOf(seek) >= 0)" (click)="addItemToList(entry)">{{entry}}</div>
+        </div>
+    </div>
+</div>

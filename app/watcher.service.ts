@@ -22,7 +22,7 @@ export class WatcherService {
     }
 
     watch(options: WatcherOptions): void {
-        this.startWatch(options.sourceDirectory, options.outputDirectory, options.monitorExistingOnStart, options.includedPatterns, options.excludedPatterns);
+        this.startWatch(options.sourceDirectory, options.outputDirectory, options.monitorExistingOnStart, options.includedPatterns.activeItems, options.excludedPatterns.activeItems);
     }
 
     private startWatch(source: string, output: string, monitorExistingOnStart: boolean, includedPatterns: string | string[], excludedPatterns: string | string[]): void {

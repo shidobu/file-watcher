@@ -1,9 +1,9 @@
 <div class="container">
     <div class="menu">
         <ng-content></ng-content>
-        <input type="button" value="Clear Log" (click)="clearLog()" />
+        <input class="w" type="button" value="Clear Log" (click)="clearLog()" />
         <span>
-            <input type="checkbox" id="autoScroll" [(ngModel)]="autoScroll" />
+            <input class="w" type="checkbox" id="autoScroll" [(ngModel)]="autoScroll" />
             <label for="autoScroll">Autoscroll</label>
         </span>
     </div>
