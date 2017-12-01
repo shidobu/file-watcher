@@ -1,4 +1,4 @@
-import { LogType, LogEntry } from './log.service';
+import { LogType, LogEntry } from '../services/log.service';
 import { Component, Input } from '@angular/core';
 
 @Component({

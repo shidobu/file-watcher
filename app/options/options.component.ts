@@ -1,8 +1,8 @@
-import { DropdownList } from './dropdown-list';
+import { DropdownList } from '../dropdown-list';
 import { FolderInputComponent } from './folder-input.component';
 import { Component, Inject, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { DirectoryService } from './directory.service';
-import { WatcherOptions } from './watcher-options';
+import { DirectoryService } from '../services/directory.service';
+import { WatcherOptions } from '../watcher-options';
 
 @Component({
     moduleId: module.id,

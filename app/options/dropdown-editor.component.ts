@@ -1,6 +1,6 @@
-import { DropdownList } from './dropdown-list';
+import { DropdownList } from '../dropdown-list';
 import { Component, Inject, OnInit, Input, Output, EventEmitter, NgZone } from '@angular/core';
-import { DirectoryService } from './directory.service';
+import { DirectoryService } from '../services//directory.service';
 
 @Component({
     moduleId: module.id,

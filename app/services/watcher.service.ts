@@ -1,6 +1,6 @@
 /// <reference types="node" />
 
-import { WatcherOptions } from './watcher-options';
+import { WatcherOptions } from '../watcher-options';
 import { LogService } from './log.service';
 
 import { Inject, Injectable } from "@angular/core";

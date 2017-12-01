@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, Input, Output, EventEmitter, NgZone, ViewChild, ElementRef } from '@angular/core';
-import { LogService, LogEntry, LogType } from './log.service';
+import { LogService, LogEntry, LogType } from '../services/log.service';
 
 @Component({
     moduleId: module.id,

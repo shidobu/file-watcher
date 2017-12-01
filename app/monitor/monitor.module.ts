@@ -6,25 +6,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { WindowComponent } from './window.component';
-import { OptionsModule } from "./options/options.module";
-import { MonitorModule } from "./monitor/monitor.module";
+import { MonitorComponent } from "./monitor.component";
+import { LogItemComponent } from "./log-item.component";
 
-import { DirectoryService } from './services/directory.service';
-import { WatcherService } from './services/watcher.service';
-import { LogService } from './services/log.service';
+import { DirectoryService } from '../services/directory.service';
+import { WatcherService } from '../services/watcher.service';
+import { LogService } from '../services/log.service';
 
 @NgModule({
     imports: [
         BrowserAnimationsModule,
         BrowserModule,
         HttpModule,
-        FormsModule,
-        OptionsModule,
-        MonitorModule
+        FormsModule
     ],
     declarations: [
-        WindowComponent
+        MonitorComponent,
+        LogItemComponent
     ],
     providers: [
         LogService,
@@ -33,6 +31,8 @@ import { LogService } from './services/log.service';
     ],
     entryComponents: [
     ],
-    bootstrap: [WindowComponent]
+    exports: [
+        MonitorComponent
+    ]
 })
-export class AppModule { }
+export class MonitorModule { }
