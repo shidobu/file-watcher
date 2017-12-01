@@ -1,6 +1,6 @@
 {
     "name": "file-watcher",
-    "version": "1.0.3-beta1",
+    "version": "1.1.0-beta1",
     "description": "A minimal file watcher",
     "main": "main.js",
     "scripts": {
@@ -11,19 +11,14 @@
         "dist": "build"
     },
     "build": {
-        "appId": "com.tr.roctesting.filewatcher",
+        "appId": "tecol.filewatcher",
         "asar": true,
-        "publish": {
-            "provider": "generic",
-            "url": "http://c549nutclrdva.tlr.thomson.com:8999/repo/file-watcher",
-            "channel": "latest"
-        },
         "files": [
             "!**/*.ts",
             "!**/*.js.map"
         ]
     },
-    "repository": "https://git.sami.int.thomsonreuters.com/RocTesting/FileWatcher",
+    "repository": "https://github.com/tecol/file-watcher",
     "keywords": [
         "Electron",
         "devtool"
