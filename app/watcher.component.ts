@@ -2,22 +2,22 @@ import { Component, Inject, NgZone } from '@angular/core';
 
 import { WatcherOptions } from './watcher-options';
 import { WatcherService } from './services/watcher.service';
-import { WatcherComponent } from './watcher.component';
 var jsonp = require('../package.json!json.js');
 
 let settings = SystemJS._nodeRequire("electron-settings");
 
 @Component({
     moduleId: module.id,
-    selector: 'window',
+    selector: 'watcher',
     providers: [WatcherService],
-    templateUrl: 'window.component.html',
-    styleUrls: ['window.component.css'],
+    templateUrl: 'watcher.component.html',
+    styleUrls: ['watcher.component.css'],
 })
-export class WindowComponent {
-    private watchers: WatcherOptions[]
+export class WatcherComponent {
+    private options: WatcherOptions;
 
     private isWatching: boolean = false;
+
     private isValid: boolean = false;
 
     constructor( @Inject(NgZone) private ngZone: NgZone, @Inject(WatcherService) private watcherService: WatcherService) { }
@@ -64,7 +64,7 @@ export class WindowComponent {
         }, 5);
     }
 
-    private get version() : string {
+    private get version(): string {
         return jsonp.version;
     }
 }

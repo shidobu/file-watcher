@@ -13,6 +13,7 @@ import { MonitorModule } from "./monitor/monitor.module";
 import { DirectoryService } from './services/directory.service';
 import { WatcherService } from './services/watcher.service';
 import { LogService } from './services/log.service';
+import { WatcherComponent } from './watcher.component';
 
 @NgModule({
     imports: [
@@ -24,7 +25,8 @@ import { LogService } from './services/log.service';
         MonitorModule
     ],
     declarations: [
-        WindowComponent
+        WindowComponent,
+        WatcherComponent
     ],
     providers: [
         LogService,

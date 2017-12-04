@@ -1,13 +1,11 @@
 <div class="window">
-    <div *ngIf="!isWatching">
-        <options [options]="options" (optionsChange)="saveSettings($event)" (invalidOptions)="setValid(!$event)">
-            <input class="w" type="button" value="Watch" (click)="isValid && startWatch()" [class.disabled]="!isValid" />
-        </options>
+    <div>
+        Click to add a new watcher.
     </div>
-    <div *ngIf="isWatching">
-        <monitor>
-            <input class="w" type="button" value="Stop" (click)="stopWatch()" />
-        </monitor>
+
+    For each watcher...
+    <div>
+        <watcher></watcher>
     </div>
 
     <div class="version no-select">
