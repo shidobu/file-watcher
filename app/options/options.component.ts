@@ -7,6 +7,7 @@ import { WatcherOptions } from '../watcher-options';
 @Component({
     moduleId: module.id,
     selector: 'options',
+    providers: [DirectoryService],
     templateUrl: 'options.component.html',
     styleUrls: ['options.component.css'],
 })

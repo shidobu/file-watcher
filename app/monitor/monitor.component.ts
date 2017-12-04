@@ -1,9 +1,11 @@
+import { DirectoryService } from './../services/directory.service';
 import { Component, Inject, OnInit, Input, Output, EventEmitter, NgZone, ViewChild, ElementRef } from '@angular/core';
 import { LogService, LogEntry, LogType } from '../services/log.service';
 
 @Component({
     moduleId: module.id,
     selector: 'monitor',
+    providers: [DirectoryService],
     templateUrl: 'monitor.component.html',
     styleUrls: ['monitor.component.css'],
 })

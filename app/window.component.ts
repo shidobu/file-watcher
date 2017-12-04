@@ -15,7 +15,7 @@ let settings = SystemJS._nodeRequire("electron-settings");
     styleUrls: ['window.component.css'],
 })
 export class WindowComponent {
-    private watchers: WatcherOptions[]
+    private watchers: Array<WatcherOptions>
 
     private isWatching: boolean = false;
     private isValid: boolean = false;
@@ -23,22 +23,13 @@ export class WindowComponent {
     constructor( @Inject(NgZone) private ngZone: NgZone, @Inject(WatcherService) private watcherService: WatcherService) { }
 
     ngOnInit(): void {
-        var defaultOptions = settings.get('options', null);
+        var defaultOptions: Array<WatcherOptions> = settings.get('watcherOptions', null);
         if (defaultOptions != null) {
-            this.options = defaultOptions;
+            this.watchers = defaultOptions;
         }
 
-        if (this.options == null) {
-            this.options = new WatcherOptions();
-        }
-    }
-
-    private startWatch(): void {
-        try {
-            this.watcherService.watch(this.options);
-            this.isWatching = true;
-        } catch (error) {
-            console.log(error);
+        if (this.watchers == null) {
+            this.watchers = new Array<WatcherOptions>();
         }
     }
 
@@ -51,9 +42,9 @@ export class WindowComponent {
         }
     }
 
-    private saveSettings(value: WatcherOptions) {
+    private saveSettings(value: Array<WatcherOptions>) {
         settings.set('options', value);
-        this.options = value;
+        this.watchers = value;
     }
 
     private setValid(value: boolean): void {

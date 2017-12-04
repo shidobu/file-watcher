@@ -5,6 +5,7 @@ import { DirectoryService } from '../services//directory.service';
 @Component({
     moduleId: module.id,
     selector: 'dropdown-editor',
+    providers: [DirectoryService],
     templateUrl: 'dropdown-editor.component.html',
     styleUrls: ['dropdown-editor.component.css'],
 })
