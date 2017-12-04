@@ -22,6 +22,7 @@ function createWindow() {
         resizable: false,
         fullscreenable: false,
         maximizable: false,
+        frame: false
     })
 
     if (process.env.production) {
