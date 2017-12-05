@@ -43,7 +43,7 @@ export class WindowComponent {
     }
 
     private saveSettings(value: Array<WatcherOptions>) {
-        settings.set('options', value);
+        settings.set('watcherOptions', value);
         this.watchers = value;
     }
 
