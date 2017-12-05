@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>File Watcher</title>
+
+    <link rel="stylesheet" href="../app.css" type="text/css" />
+    
+    <style>
+        .version[_ngcontent-c0] {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            z-index: -10;
+            color: #6b6b6b;
+            font-size: 8pt;
+            margin: 2px;
+        }
+    </style>
+    <style>
+        .version[_ngcontent-c1] {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            z-index: -10;
+            color: #6b6b6b;
+            font-size: 8pt;
+            margin: 2px;
+        }
+    </style>
+    <style></style>
+    <style>
+        .folder-input[_ngcontent-c4] {
+            padding-bottom: 4px;
+            width: 100%;
+        }
+
+        .folder-input[_ngcontent-c4] input[type=text][_ngcontent-c4] {
+            width: 365px;
+            font-size: 12pt;
+            padding: 2px 4px;
+        }
+
+        .folder-input[_ngcontent-c4] input[invalid=true][_ngcontent-c4] {
+            background-color: red;
+        }
+
+        .folder-input[_ngcontent-c4] input[type=button][_ngcontent-c4] {
+            position: relative;
+            bottom: 2px;
+        }
+
+        .folder-input[_ngcontent-c4] div[_ngcontent-c4]:first-child {
+            margin-bottom: 2px;
+        }
+    </style>
+    <style>
+        div.view[_ngcontent-c5]>span[_ngcontent-c5] {
+            display: inline-block;
+            border: 1px solid gray;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            padding: 1px 2px;
+        }
+
+        div.view[_ngcontent-c5]>span[_ngcontent-c5]+span[_ngcontent-c5] {
+            margin-left: 2px;
+        }
+
+        .empty[_ngcontent-c5]:hover {
+            cursor: pointer;
+            outline: 1px solid;
+        }
+
+        div.edit[_ngcontent-c5]>span[_ngcontent-c5] {
+            display: inline-block;
+            border: 1px solid gray;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            padding: 1px 2px;
+        }
+
+        div.edit[_ngcontent-c5]>span[_ngcontent-c5]+span[_ngcontent-c5] {
+            margin-left: 2px;
+        }
+
+        .hidden-item[_ngcontent-c5] {
+            display: none;
+        }
+
+        .delete-entry[_ngcontent-c5] {
+            cursor: pointer;
+        }
+
+        .delete-entry[_ngcontent-c5]:hover {
+            color: orange;
+        }
+
+        .list-button[_ngcontent-c5] {
+            cursor: pointer;
+        }
+
+        .list-button[_ngcontent-c5]:hover {
+            color: orange;
+        }
+
+        .item-entry[_ngcontent-c5] {
+            padding: 1px 2px;
+        }
+
+        .item-entry[_ngcontent-c5]:hover {
+            background-color: orange;
+            cursor: pointer;
+        }
+
+        .items[_ngcontent-c5] {
+            border: solid 1px gray;
+            background-color: #3f3f3f;
+            color: white;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+        .item-input[_ngcontent-c5] {
+            border: 0;
+            background-color: transparent;
+            color: white;
+            outline: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <window _nghost-c0="" ng-version="5.0.5">
+        <div _ngcontent-c0="" class="window">
+            <watcher _ngcontent-c0="" _nghost-c1="">
+                <div _ngcontent-c1="" class="watcher">
+                    <div _ngcontent-c1="">
+                        <options _ngcontent-c1="" _nghost-c2="" ng-reflect-options="[object Object]">
+                            <div _ngcontent-c2="" class="container">
+                                <div _ngcontent-c2="" class="menu">
+                                    <input _ngcontent-c1="" class="w" type="button" value="Watch">
+                                </div>
+                                <div _ngcontent-c2="" class="options">
+                                    <folder-input _ngcontent-c2="" label="Source Directory" _nghost-c4="" ng-reflect-label="Source Directory" ng-reflect-directory="D:\Projects\Games\SimuLux.AI\B">
+                                        <div _ngcontent-c4="" class="folder-input">
+                                            <div _ngcontent-c4="">
+                                                <label _ngcontent-c4="" for="Source Directory">Source Directory</label>
+                                                <input _ngcontent-c4="" class="w" type="button" value="Select">
+                                            </div>
+                                            <div _ngcontent-c4="">
+                                                <input _ngcontent-c4="" class="w ng-untouched ng-pristine ng-valid" type="text" ng-reflect-model="D:\Projects\Games\SimuLux.AI\B"
+                                                    id="Source Directory" invalid="false" placeholder="">
+                                            </div>
+                                            <div _ngcontent-c4="" class="errors">
+                                            </div>
+                                        </div>
+                                    </folder-input>
+                                    <folder-input _ngcontent-c2="" label="Output Directory" _nghost-c4="" ng-reflect-label="Output Directory" ng-reflect-directory="D:\Projects\Games\SimuLux\Asse">
+                                        <div _ngcontent-c4="" class="folder-input">
+                                            <div _ngcontent-c4="">
+                                                <label _ngcontent-c4="" for="Output Directory">Output Directory</label>
+                                                <input _ngcontent-c4="" class="w" type="button" value="Select">
+                                            </div>
+                                            <div _ngcontent-c4="">
+                                                <input _ngcontent-c4="" class="w ng-untouched ng-pristine ng-valid" type="text" ng-reflect-model="D:\Projects\Games\SimuLux\Asse"
+                                                    id="Output Directory" invalid="false" placeholder="">
+                                            </div>
+                                            <div _ngcontent-c4="" class="errors">
+                                            </div>
+                                        </div>
+                                    </folder-input>
+                                    <div _ngcontent-c2="" class="monitorExisting">
+                                        <input _ngcontent-c2="" class="w ng-untouched ng-pristine ng-valid" id="monitorExistingOnStart" type="checkbox" ng-reflect-model="true">
+                                        <label _ngcontent-c2="" for="monitorExistingOnStart">Monitor existing files on start.</label>
+                                    </div>
+                                    <div _ngcontent-c2="" class="included">
+                                        <div _ngcontent-c2="">Included Patterns:</div>
+                                        <dropdown-editor _ngcontent-c2="" _nghost-c5="" ng-reflect-entries="[object Object]">
+                                            <div _ngcontent-c5="">
+                                                <div _ngcontent-c5="" class="view">
+                                                    <div _ngcontent-c5="" class="items">
+                                                        <span _ngcontent-c5="">SimuLux*.dll</span>
+                                                        <span _ngcontent-c5="">SimuLux*.pdb</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </dropdown-editor>
+                                    </div>
+
+                                    <div _ngcontent-c2="" class="excluded">
+                                        <div _ngcontent-c2="">Excluded Patterns:</div>
+                                        <dropdown-editor _ngcontent-c2="" _nghost-c5="" ng-reflect-entries="[object Object]">
+                                            <div _ngcontent-c5="">
+                                                <div _ngcontent-c5="" class="view">
+                                                    <div _ngcontent-c5="" class="items">
+                                                        <span _ngcontent-c5="">.git</span>
+                                                        <span _ngcontent-c5="">node_modules</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </dropdown-editor>
+                                    </div>
+                                </div>
+                            </div>
+                        </options>
+                    </div>
+                </div>
+            </watcher>
+        </div>
+
+        <div _ngcontent-c0="" class="version no-select">
+            1.1.0-beta1
+        </div>
+    </window>
+</body>
+
+</html>
