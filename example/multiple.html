@@ -9,151 +9,29 @@
     <link rel="stylesheet" href="../css/controls.css" type="text/css" />
     <link rel="stylesheet" href="../css/defines.css" type="text/css" />
 
-    <style>
-        .version[_ngcontent-c0] {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            z-index: -10;
-            color: #6b6b6b;
-            font-size: 8pt;
-            margin: 2px;
-        }
-    </style>
-    <style>
-        .version[_ngcontent-c1] {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            z-index: -10;
-            color: #6b6b6b;
-            font-size: 8pt;
-            margin: 2px;
-        }
-    </style>
-    <style></style>
-    <style>
-        .folder-input[_ngcontent-c4] {
-            padding-bottom: 4px;
-            width: 100%;
-        }
-        
-        .folder-input[_ngcontent-c4] input[type=text][_ngcontent-c4] {
-            width: 365px;
-            font-size: 12pt;
-            padding: 2px 4px;
-        }
-        
-        .folder-input[_ngcontent-c4] input[invalid=true][_ngcontent-c4] {
-            background-color: red;
-        }
-        
-        .folder-input[_ngcontent-c4] input[type=button][_ngcontent-c4] {
-            position: relative;
-            bottom: 2px;
-        }
-        
-        .folder-input[_ngcontent-c4] div[_ngcontent-c4]:first-child {
-            margin-bottom: 2px;
-        }
-    </style>
-    <style>
-        div.view[_ngcontent-c5]>span[_ngcontent-c5] {
-            display: inline-block;
-            border: 1px solid gray;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            border-radius: 4px;
-            padding: 1px 2px;
-        }
-        
-        div.view[_ngcontent-c5]>span[_ngcontent-c5]+span[_ngcontent-c5] {
-            margin-left: 2px;
-        }
-        
-        .empty[_ngcontent-c5]:hover {
-            cursor: pointer;
-            outline: 1px solid;
-        }
-        
-        div.edit[_ngcontent-c5]>span[_ngcontent-c5] {
-            display: inline-block;
-            border: 1px solid gray;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            border-radius: 4px;
-            padding: 1px 2px;
-        }
-        
-        div.edit[_ngcontent-c5]>span[_ngcontent-c5]+span[_ngcontent-c5] {
-            margin-left: 2px;
-        }
-        
-        .hidden-item[_ngcontent-c5] {
-            display: none;
-        }
-        
-        .delete-entry[_ngcontent-c5] {
-            cursor: pointer;
-        }
-        
-        .delete-entry[_ngcontent-c5]:hover {
-            color: orange;
-        }
-        
-        .list-button[_ngcontent-c5] {
-            cursor: pointer;
-        }
-        
-        .list-button[_ngcontent-c5]:hover {
-            color: orange;
-        }
-        
-        .item-entry[_ngcontent-c5] {
-            padding: 1px 2px;
-        }
-        
-        .item-entry[_ngcontent-c5]:hover {
-            background-color: orange;
-            cursor: pointer;
-        }
-        
-        .items[_ngcontent-c5] {
-            border: solid 1px gray;
-            background-color: #3f3f3f;
-            color: white;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            border-radius: 5px;
-        }
-        
-        .item-input[_ngcontent-c5] {
-            border: 0;
-            background-color: transparent;
-            color: white;
-            outline: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="./ng-content.css" type="text/css" />
 </head>
 
 <body>
     <window _nghost-c0="" ng-version="5.0.5">
-        <div class="tabs">
-            <div>
-                <tab>
-                    <div>Configuration #1</div>
-                    <div class="start"></div>
-                </tab>
-            </div>
-
-            <div>
-                <tab>
-                    <div>Simple Config</div>
-                    <div class="stop"></div>
-                </tab>
-            </div>
-        </div>
         <div _ngcontent-c0="" class="window">
+            <tabs>
+                <div class="tabs">
+                    <div>
+                        <tab>
+                            <div>Configuration #1</div>
+                            <div class="start"></div>
+                        </tab>
+                    </div>
+
+                    <div>
+                        <tab>
+                            <div>Simple Config</div>
+                            <div class="stop"></div>
+                        </tab>
+                    </div>
+                </div>
+            </tabs>
             <watcher _ngcontent-c0="" _nghost-c1="">
                 <div _ngcontent-c1="" class="watcher">
                     <div _ngcontent-c1="">
@@ -226,6 +104,39 @@
                     </div>
                 </div>
             </watcher>
+
+            <monitor _ngcontent-c1="" _nghost-c3="">
+                <div _ngcontent-c3="" class="container">
+                    <div _ngcontent-c3="" class="menu">
+
+                        <input _ngcontent-c1="" class="w" type="button" value="Stop">
+
+                        <input _ngcontent-c3="" class="w" type="button" value="Clear Log">
+                        <span _ngcontent-c3="">
+                          <input _ngcontent-c3="" class="w ng-untouched ng-pristine ng-valid" id="autoScroll" type="checkbox" ng-reflect-model="true">
+                          <label _ngcontent-c3="" for="autoScroll">Autoscroll</label>
+                      </span>
+                    </div>
+                    <div _ngcontent-c3="" class="monitor">
+                        <div _ngcontent-c3="" class="log">
+
+                            <log-item _ngcontent-c3="" _nghost-c6="" ng-reflect-entry="[object Object]">
+                                <div _ngcontent-c6="" class="entry File" ng-reflect-klass="entry" ng-reflect-ng-class="File">
+                                    <div _ngcontent-c6="" class="type">[File]</div>
+                                    <div _ngcontent-c6="" class="added" ng-reflect-ng-class="added">SimuLux\SimuLux.dll added</div>
+                                </div>
+                            </log-item>
+                            <log-item _ngcontent-c3="" _nghost-c6="" ng-reflect-entry="[object Object]">
+                                <div _ngcontent-c6="" class="entry File" ng-reflect-klass="entry" ng-reflect-ng-class="File">
+                                    <div _ngcontent-c6="" class="type">[File]</div>
+                                    <div _ngcontent-c6="" class="added" ng-reflect-ng-class="added">SimuLux\SimuLux.pdb added</div>
+                                </div>
+                            </log-item>
+                        </div>
+                        <div _ngcontent-c3=""></div>
+                    </div>
+                </div>
+            </monitor>
         </div>
 
         <div _ngcontent-c0="" class="version no-select">
