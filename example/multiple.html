@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <title>File Watcher</title>
 
-    <link rel="stylesheet" href="../app.css" type="text/css" />
-    
+    <link rel="stylesheet" href="../css/app.css" type="text/css" />
+    <link rel="stylesheet" href="../css/controls.css" type="text/css" />
+    <link rel="stylesheet" href="../css/defines.css" type="text/css" />
+
     <style>
         .version[_ngcontent-c0] {
             position: fixed;
@@ -35,22 +37,22 @@
             padding-bottom: 4px;
             width: 100%;
         }
-
+        
         .folder-input[_ngcontent-c4] input[type=text][_ngcontent-c4] {
             width: 365px;
             font-size: 12pt;
             padding: 2px 4px;
         }
-
+        
         .folder-input[_ngcontent-c4] input[invalid=true][_ngcontent-c4] {
             background-color: red;
         }
-
+        
         .folder-input[_ngcontent-c4] input[type=button][_ngcontent-c4] {
             position: relative;
             bottom: 2px;
         }
-
+        
         .folder-input[_ngcontent-c4] div[_ngcontent-c4]:first-child {
             margin-bottom: 2px;
         }
@@ -64,16 +66,16 @@
             border-radius: 4px;
             padding: 1px 2px;
         }
-
+        
         div.view[_ngcontent-c5]>span[_ngcontent-c5]+span[_ngcontent-c5] {
             margin-left: 2px;
         }
-
+        
         .empty[_ngcontent-c5]:hover {
             cursor: pointer;
             outline: 1px solid;
         }
-
+        
         div.edit[_ngcontent-c5]>span[_ngcontent-c5] {
             display: inline-block;
             border: 1px solid gray;
@@ -82,40 +84,40 @@
             border-radius: 4px;
             padding: 1px 2px;
         }
-
+        
         div.edit[_ngcontent-c5]>span[_ngcontent-c5]+span[_ngcontent-c5] {
             margin-left: 2px;
         }
-
+        
         .hidden-item[_ngcontent-c5] {
             display: none;
         }
-
+        
         .delete-entry[_ngcontent-c5] {
             cursor: pointer;
         }
-
+        
         .delete-entry[_ngcontent-c5]:hover {
             color: orange;
         }
-
+        
         .list-button[_ngcontent-c5] {
             cursor: pointer;
         }
-
+        
         .list-button[_ngcontent-c5]:hover {
             color: orange;
         }
-
+        
         .item-entry[_ngcontent-c5] {
             padding: 1px 2px;
         }
-
+        
         .item-entry[_ngcontent-c5]:hover {
             background-color: orange;
             cursor: pointer;
         }
-
+        
         .items[_ngcontent-c5] {
             border: solid 1px gray;
             background-color: #3f3f3f;
@@ -124,7 +126,7 @@
             -moz-border-radius: 5px;
             border-radius: 5px;
         }
-
+        
         .item-input[_ngcontent-c5] {
             border: 0;
             background-color: transparent;
@@ -136,6 +138,21 @@
 
 <body>
     <window _nghost-c0="" ng-version="5.0.5">
+        <div class="tabs">
+            <div>
+                <tab>
+                    <div>Configuration #1</div>
+                    <div class="start"></div>
+                </tab>
+            </div>
+
+            <div>
+                <tab>
+                    <div>Simple Config</div>
+                    <div class="stop"></div>
+                </tab>
+            </div>
+        </div>
         <div _ngcontent-c0="" class="window">
             <watcher _ngcontent-c0="" _nghost-c1="">
                 <div _ngcontent-c1="" class="watcher">
@@ -153,8 +170,7 @@
                                                 <input _ngcontent-c4="" class="w" type="button" value="Select">
                                             </div>
                                             <div _ngcontent-c4="">
-                                                <input _ngcontent-c4="" class="w ng-untouched ng-pristine ng-valid" type="text" ng-reflect-model="D:\Projects\Games\SimuLux.AI\B"
-                                                    id="Source Directory" invalid="false" placeholder="">
+                                                <input _ngcontent-c4="" class="w ng-untouched ng-pristine ng-valid" type="text" ng-reflect-model="D:\Projects\Games\SimuLux.AI\B" id="Source Directory" invalid="false" placeholder="">
                                             </div>
                                             <div _ngcontent-c4="" class="errors">
                                             </div>
@@ -167,8 +183,7 @@
                                                 <input _ngcontent-c4="" class="w" type="button" value="Select">
                                             </div>
                                             <div _ngcontent-c4="">
-                                                <input _ngcontent-c4="" class="w ng-untouched ng-pristine ng-valid" type="text" ng-reflect-model="D:\Projects\Games\SimuLux\Asse"
-                                                    id="Output Directory" invalid="false" placeholder="">
+                                                <input _ngcontent-c4="" class="w ng-untouched ng-pristine ng-valid" type="text" ng-reflect-model="D:\Projects\Games\SimuLux\Asse" id="Output Directory" invalid="false" placeholder="">
                                             </div>
                                             <div _ngcontent-c4="" class="errors">
                                             </div>

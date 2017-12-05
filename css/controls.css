@@ -1,0 +1,31 @@
+input.w {
+    border: solid 1px gray;
+    background-color: #3f3f3f;
+    color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input.w[type=button] {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+input.w:not([type=checkbox]):hover {
+    box-shadow: 0 0 1px white;
+    cursor: pointer;
+}
+
+input.w.disabled {
+    background-color: #000;
+    border: solid 1px #333;
+    color: #333;
+    outline: 0;
+}
+
+input.w.disabled:not([type=checkbox]):hover {
+    box-shadow: 0 0 0 transparent;
+    cursor: not-allowed;
+}
