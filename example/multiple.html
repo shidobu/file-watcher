@@ -15,128 +15,140 @@
 <body>
     <window _nghost-c0="" ng-version="5.0.5">
         <div _ngcontent-c0="" class="window">
-            <tabs>
-                <div class="tabs">
-                    <div>
-                        <tab>
-                            <div>Configuration #1</div>
-                            <div class="start"></div>
-                        </tab>
-                    </div>
+            <header>
+                <titlebar>
+                    <div class="titlebar"></div>
+                </titlebar>
+            </header>
+            <content>
 
-                    <div>
-                        <tab>
-                            <div>Simple Config</div>
-                            <div class="stop"></div>
-                        </tab>
-                    </div>
-                </div>
-            </tabs>
-            <watcher _ngcontent-c0="" _nghost-c1="">
-                <div _ngcontent-c1="" class="watcher">
-                    <div _ngcontent-c1="">
-                        <options _ngcontent-c1="" _nghost-c2="" ng-reflect-options="[object Object]">
-                            <div _ngcontent-c2="" class="container">
-                                <div _ngcontent-c2="" class="menu">
-                                    <input _ngcontent-c1="" class="w" type="button" value="Watch">
-                                </div>
-                                <div _ngcontent-c2="" class="options">
-                                    <folder-input _ngcontent-c2="" label="Source Directory" _nghost-c4="" ng-reflect-label="Source Directory" ng-reflect-directory="D:\Projects\Games\SimuLux.AI\B">
-                                        <div _ngcontent-c4="" class="folder-input">
-                                            <div _ngcontent-c4="">
-                                                <label _ngcontent-c4="" for="Source Directory">Source Directory</label>
-                                                <input _ngcontent-c4="" class="w" type="button" value="Select">
-                                            </div>
-                                            <div _ngcontent-c4="">
-                                                <input _ngcontent-c4="" class="w ng-untouched ng-pristine ng-valid" type="text" ng-reflect-model="D:\Projects\Games\SimuLux.AI\B" id="Source Directory" invalid="false" placeholder="">
-                                            </div>
-                                            <div _ngcontent-c4="" class="errors">
-                                            </div>
-                                        </div>
-                                    </folder-input>
-                                    <folder-input _ngcontent-c2="" label="Output Directory" _nghost-c4="" ng-reflect-label="Output Directory" ng-reflect-directory="D:\Projects\Games\SimuLux\Asse">
-                                        <div _ngcontent-c4="" class="folder-input">
-                                            <div _ngcontent-c4="">
-                                                <label _ngcontent-c4="" for="Output Directory">Output Directory</label>
-                                                <input _ngcontent-c4="" class="w" type="button" value="Select">
-                                            </div>
-                                            <div _ngcontent-c4="">
-                                                <input _ngcontent-c4="" class="w ng-untouched ng-pristine ng-valid" type="text" ng-reflect-model="D:\Projects\Games\SimuLux\Asse" id="Output Directory" invalid="false" placeholder="">
-                                            </div>
-                                            <div _ngcontent-c4="" class="errors">
-                                            </div>
-                                        </div>
-                                    </folder-input>
-                                    <div _ngcontent-c2="" class="monitorExisting">
-                                        <input _ngcontent-c2="" class="w ng-untouched ng-pristine ng-valid" id="monitorExistingOnStart" type="checkbox" ng-reflect-model="true">
-                                        <label _ngcontent-c2="" for="monitorExistingOnStart">Monitor existing files on start.</label>
-                                    </div>
-                                    <div _ngcontent-c2="" class="included">
-                                        <div _ngcontent-c2="">Included Patterns:</div>
-                                        <dropdown-editor _ngcontent-c2="" _nghost-c5="" ng-reflect-entries="[object Object]">
-                                            <div _ngcontent-c5="">
-                                                <div _ngcontent-c5="" class="view">
-                                                    <div _ngcontent-c5="" class="items">
-                                                        <span _ngcontent-c5="">SimuLux*.dll</span>
-                                                        <span _ngcontent-c5="">SimuLux*.pdb</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </dropdown-editor>
-                                    </div>
-
-                                    <div _ngcontent-c2="" class="excluded">
-                                        <div _ngcontent-c2="">Excluded Patterns:</div>
-                                        <dropdown-editor _ngcontent-c2="" _nghost-c5="" ng-reflect-entries="[object Object]">
-                                            <div _ngcontent-c5="">
-                                                <div _ngcontent-c5="" class="view">
-                                                    <div _ngcontent-c5="" class="items">
-                                                        <span _ngcontent-c5="">.git</span>
-                                                        <span _ngcontent-c5="">node_modules</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </dropdown-editor>
-                                    </div>
-                                </div>
-                            </div>
-                        </options>
-                    </div>
-                </div>
-            </watcher>
-
-            <monitor _ngcontent-c1="" _nghost-c3="">
-                <div _ngcontent-c3="" class="container">
-                    <div _ngcontent-c3="" class="menu">
-
-                        <input _ngcontent-c1="" class="w" type="button" value="Stop">
-
-                        <input _ngcontent-c3="" class="w" type="button" value="Clear Log">
-                        <span _ngcontent-c3="">
-                          <input _ngcontent-c3="" class="w ng-untouched ng-pristine ng-valid" id="autoScroll" type="checkbox" ng-reflect-model="true">
-                          <label _ngcontent-c3="" for="autoScroll">Autoscroll</label>
-                      </span>
-                    </div>
-                    <div _ngcontent-c3="" class="monitor">
-                        <div _ngcontent-c3="" class="log">
-
-                            <log-item _ngcontent-c3="" _nghost-c6="" ng-reflect-entry="[object Object]">
-                                <div _ngcontent-c6="" class="entry File" ng-reflect-klass="entry" ng-reflect-ng-class="File">
-                                    <div _ngcontent-c6="" class="type">[File]</div>
-                                    <div _ngcontent-c6="" class="added" ng-reflect-ng-class="added">SimuLux\SimuLux.dll added</div>
-                                </div>
-                            </log-item>
-                            <log-item _ngcontent-c3="" _nghost-c6="" ng-reflect-entry="[object Object]">
-                                <div _ngcontent-c6="" class="entry File" ng-reflect-klass="entry" ng-reflect-ng-class="File">
-                                    <div _ngcontent-c6="" class="type">[File]</div>
-                                    <div _ngcontent-c6="" class="added" ng-reflect-ng-class="added">SimuLux\SimuLux.pdb added</div>
-                                </div>
-                            </log-item>
+                <tabs>
+                    <div class="tabs">
+                        <div>
+                            <tab>
+                                <div>Configuration #1</div>
+                                <div class="start"></div>
+                            </tab>
                         </div>
-                        <div _ngcontent-c3=""></div>
+
+                        <div>
+                            <tab>
+                                <div>Simple Config</div>
+                                <div class="stop"></div>
+                            </tab>
+                        </div>
                     </div>
-                </div>
-            </monitor>
+                </tabs>
+                <watcher _ngcontent-c0="" _nghost-c1="">
+                    <div _ngcontent-c1="" class="watcher">
+                        <div _ngcontent-c1="">
+                            <options _ngcontent-c1="" _nghost-c2="" ng-reflect-options="[object Object]">
+                                <div _ngcontent-c2="" class="container">
+                                    <div _ngcontent-c2="" class="menu">
+                                        <input _ngcontent-c1="" class="w" type="button" value="Watch">
+                                    </div>
+                                    <div _ngcontent-c2="" class="options">
+                                        <folder-input _ngcontent-c2="" label="Source Directory" _nghost-c4="" ng-reflect-label="Source Directory" ng-reflect-directory="D:\Projects\Games\SimuLux.AI\B">
+                                            <div _ngcontent-c4="" class="folder-input">
+                                                <div _ngcontent-c4="">
+                                                    <label _ngcontent-c4="" for="Source Directory">Source Directory</label>
+                                                    <input _ngcontent-c4="" class="w" type="button" value="Select">
+                                                </div>
+                                                <div _ngcontent-c4="">
+                                                    <input _ngcontent-c4="" class="w ng-untouched ng-pristine ng-valid" type="text" ng-reflect-model="D:\Projects\Games\SimuLux.AI\B"
+                                                        id="Source Directory" invalid="false" placeholder="">
+                                                </div>
+                                                <div _ngcontent-c4="" class="errors">
+                                                </div>
+                                            </div>
+                                        </folder-input>
+                                        <folder-input _ngcontent-c2="" label="Output Directory" _nghost-c4="" ng-reflect-label="Output Directory" ng-reflect-directory="D:\Projects\Games\SimuLux\Asse">
+                                            <div _ngcontent-c4="" class="folder-input">
+                                                <div _ngcontent-c4="">
+                                                    <label _ngcontent-c4="" for="Output Directory">Output Directory</label>
+                                                    <input _ngcontent-c4="" class="w" type="button" value="Select">
+                                                </div>
+                                                <div _ngcontent-c4="">
+                                                    <input _ngcontent-c4="" class="w ng-untouched ng-pristine ng-valid" type="text" ng-reflect-model="D:\Projects\Games\SimuLux\Asse"
+                                                        id="Output Directory" invalid="false" placeholder="">
+                                                </div>
+                                                <div _ngcontent-c4="" class="errors">
+                                                </div>
+                                            </div>
+                                        </folder-input>
+                                        <div _ngcontent-c2="" class="monitorExisting">
+                                            <input _ngcontent-c2="" class="w ng-untouched ng-pristine ng-valid" id="monitorExistingOnStart" type="checkbox" ng-reflect-model="true">
+                                            <label _ngcontent-c2="" for="monitorExistingOnStart">Monitor existing files on start.</label>
+                                        </div>
+                                        <div _ngcontent-c2="" class="included">
+                                            <div _ngcontent-c2="">Included Patterns:</div>
+                                            <dropdown-editor _ngcontent-c2="" _nghost-c5="" ng-reflect-entries="[object Object]">
+                                                <div _ngcontent-c5="">
+                                                    <div _ngcontent-c5="" class="view">
+                                                        <div _ngcontent-c5="" class="items">
+                                                            <span _ngcontent-c5="">SimuLux*.dll</span>
+                                                            <span _ngcontent-c5="">SimuLux*.pdb</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </dropdown-editor>
+                                        </div>
+
+                                        <div _ngcontent-c2="" class="excluded">
+                                            <div _ngcontent-c2="">Excluded Patterns:</div>
+                                            <dropdown-editor _ngcontent-c2="" _nghost-c5="" ng-reflect-entries="[object Object]">
+                                                <div _ngcontent-c5="">
+                                                    <div _ngcontent-c5="" class="view">
+                                                        <div _ngcontent-c5="" class="items">
+                                                            <span _ngcontent-c5="">.git</span>
+                                                            <span _ngcontent-c5="">node_modules</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </dropdown-editor>
+                                        </div>
+                                    </div>
+                                </div>
+                            </options>
+                        </div>
+                    </div>
+                </watcher>
+            </content>
+            <footer>
+
+                <monitor _ngcontent-c1="" _nghost-c3="">
+                    <div _ngcontent-c3="" class="monitor">
+                        <div _ngcontent-c3="" class="container">
+                            <div _ngcontent-c3="" class="menu">
+
+                                <input _ngcontent-c1="" class="w" type="button" value="Stop">
+
+                                <input _ngcontent-c3="" class="w" type="button" value="Clear Log">
+                                <span _ngcontent-c3="">
+                                    <input _ngcontent-c3="" class="w ng-untouched ng-pristine ng-valid" id="autoScroll" type="checkbox" ng-reflect-model="true">
+                                    <label _ngcontent-c3="" for="autoScroll">Autoscroll</label>
+                                </span>
+                            </div>
+                            <div _ngcontent-c3="" class="log">
+
+                                <log-item _ngcontent-c3="" _nghost-c6="" ng-reflect-entry="[object Object]">
+                                    <div _ngcontent-c6="" class="entry File" ng-reflect-klass="entry" ng-reflect-ng-class="File">
+                                        <div _ngcontent-c6="" class="type">[File]</div>
+                                        <div _ngcontent-c6="" class="added" ng-reflect-ng-class="added">SimuLux\SimuLux.dll added</div>
+                                    </div>
+                                </log-item>
+                                <log-item _ngcontent-c3="" _nghost-c6="" ng-reflect-entry="[object Object]">
+                                    <div _ngcontent-c6="" class="entry File" ng-reflect-klass="entry" ng-reflect-ng-class="File">
+                                        <div _ngcontent-c6="" class="type">[File]</div>
+                                        <div _ngcontent-c6="" class="added" ng-reflect-ng-class="added">SimuLux\SimuLux.pdb added</div>
+                                    </div>
+                                </log-item>
+                            </div>
+                            <div _ngcontent-c3=""></div>
+                        </div>
+                    </div>
+                </monitor>
+            </footer>
         </div>
 
         <div _ngcontent-c0="" class="version no-select">

@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+html, body, .Container
+{
+    height: 100%;
+}
+    .Container:before
+    {
+        content: '';
+        height: 100%;
+        float: left;
+    }
+.HeightTaker
+{
+    position: relative;
+    z-index: 1;
+}
+    .HeightTaker:after
+    {
+        content: '';
+        clear: both;
+        display: block;
+    }
+.Wrapper
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+.Inverse, .Inverse > *
+{
+    -moz-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -o-transform: rotate(180deg);
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+}
+
+.Table
+{
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+.Column
+{
+    display: table-cell;
+}
+
+/*For demonstration only*/
+p
+{    
+    font-size: 1.3em;
+}
+
+.Important
+{
+    font-weight: bolder;
+    color: white;
+}
+
+body > .Container
+{
+    text-align: center;
+}
+
+.Header, .Footer
+{
+    padding: 5px 0;
+}
+.Header
+{
+    background-color: #bf5b5b;
+}
+.C1
+{
+    background-color: #90adc1;
+}
+.C2
+{
+    background-color: #b6ff00;
+}
+.C3
+{
+    background-color: #723131;
+}
+.Footer
+{
+    background-color: #b5a8b7;
+}
+
