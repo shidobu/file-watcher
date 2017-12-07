@@ -14,7 +14,8 @@ import { DirectoryService } from './services/directory.service';
 import { WatcherService } from './services/watcher.service';
 import { LogService } from './services/log.service';
 import { WatcherComponent } from './watcher.component';
-import { LayoutComponent } from './layout.component';
+import { PageLayoutComponent } from './page-layout.component';
+import { ColumnComponent } from './column.component';
 
 @NgModule({
     imports: [
@@ -28,7 +29,8 @@ import { LayoutComponent } from './layout.component';
     declarations: [
         WindowComponent,
         WatcherComponent,
-        LayoutComponent
+        PageLayoutComponent,
+        ColumnComponent
     ],
     providers: [
         LogService,
